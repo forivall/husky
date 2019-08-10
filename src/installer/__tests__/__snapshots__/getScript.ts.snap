@@ -7,7 +7,7 @@ exports[`hookScript should match snapshot (OS X/Linux) 1`] = `
 # Hook created by Husky
 #   Version: 3.0.3
 #   At: <locale date string>
-#   See: https://github.com/typicode/husky#readme
+#   See: https://github.com/forivall/husky#readme
 
 # From
 #   Directory: /home/typicode/projects/foo-package
@@ -63,7 +63,7 @@ exports[`hookScript should match snapshot (Windows) 1`] = `
 # Hook created by Husky
 #   Version: 3.0.3
 #   At: <locale date string>
-#   See: https://github.com/typicode/husky#readme
+#   See: https://github.com/forivall/husky#readme
 
 # From
 #   Directory: /home/typicode/projects/foo-package
