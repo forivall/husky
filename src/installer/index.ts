@@ -141,9 +141,16 @@ export function install(
   const conf = getConf(userPkgDir)
 
   // Checks
-  if (['1', 'true'].includes(process.env.HUSKY_SKIP_INSTALL || '')) {
+  if (
+    ['1', 'true'].includes(process.env.HUSKY_SKIP_INSTALL || '') ||
+    conf.skipInstall
+  ) {
     console.log(
-      "HUSKY_SKIP_INSTALL environment variable is set to 'true',",
+      `${
+        conf.skipInstall
+          ? 'skipInstall option'
+          : 'HUSKY_SKIP_INSTALL environment variable'
+      } is set to 'true',`,
       'skipping Git hooks installation.'
     )
     return
