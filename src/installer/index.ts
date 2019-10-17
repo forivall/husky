@@ -4,6 +4,7 @@ import pkgDir from 'pkg-dir'
 import getConf from '../getConf'
 import getScript from './getScript'
 import { isGhooks, isHusky, isPreCommit, isYorkie } from './is'
+import debug from '../debug'
 
 const hookList = [
   'applypatch-msg',
@@ -174,11 +175,10 @@ export function install(
     fs.mkdirSync(gitHooksDir)
   }
 
+  debug(`Installing hooks in '${gitHooksDir}'`)
   const hooks = getHooks(gitDir)
   const script = getScript(topLevel, huskyDir, requireRunNodePath)
   createHooks(hooks, script)
-
-  console.log(`husky > Done`)
 }
 
 export function uninstall(gitDir: string, huskyDir: string): void {
@@ -199,6 +199,4 @@ export function uninstall(gitDir: string, huskyDir: string): void {
   // Remove hooks
   const hooks = getHooks(gitDir)
   removeHooks(hooks)
-
-  console.log('husky > Done')
 }

@@ -5,7 +5,7 @@ exports[`hookScript should match snapshot (OS X/Linux) 1`] = `
 # husky
 
 # Hook created by Husky
-#   Version: 3.1.0-skipInstall
+#   Version: 3.1.1-skipInstall
 #   At: <locale date string>
 #   See: https://github.com/forivall/husky#readme
 
@@ -23,7 +23,9 @@ debug() {
   fi
 }
 
+debug \\"husky v3.0.8 (created at <locale date string>)\\"
 debug \\"$hookName hook started\\"
+debug \\"Current working directory is '\`pwd\`'\\"
 
 if [ \\"\${HUSKY_SKIP_HOOKS}\\" = \\"true\\" ] || [ \\"\${HUSKY_SKIP_HOOKS}\\" = \\"1\\" ]; then
   debug \\"HUSKY_SKIP_HOOKS is set to \${HUSKY_SKIP_HOOKS}, skipping hook\\"
@@ -31,20 +33,20 @@ if [ \\"\${HUSKY_SKIP_HOOKS}\\" = \\"true\\" ] || [ \\"\${HUSKY_SKIP_HOOKS}\\" =
 fi
 
 if [ \\"\${HUSKY_USE_YARN}\\" = \\"true\\" ] || [ \\"\${HUSKY_USE_YARN}\\" = \\"1\\" ]; then
-  debug \\"calling husky through Yarn\\"
+  debug \\"Calling husky through Yarn\\"
   yarn husky-run $hookName \\"$gitParams\\"
 else
-  
+
   if ! command -v node >/dev/null 2>&1; then
     echo \\"Info: can't find node in PATH, trying to find a node binary on your system\\"
   fi
-  
+
   if [ -f \\"$scriptPath\\" ]; then
     # if [ -t 1 ]; then
     #   exec < /dev/tty
     # fi
     if [ -f ~/.huskyrc ]; then
-      debug \\"source ~/.huskyrc\\"
+      debug \\"Sourcing '~/.huskyrc'\\"
       . ~/.huskyrc
     fi
     node_modules/run-node/run-node \\"$scriptPath\\" $hookName \\"$gitParams\\"
@@ -61,7 +63,7 @@ exports[`hookScript should match snapshot (Windows) 1`] = `
 # husky
 
 # Hook created by Husky
-#   Version: 3.1.0-skipInstall
+#   Version: 3.1.1-skipInstall
 #   At: <locale date string>
 #   See: https://github.com/forivall/husky#readme
 
@@ -79,7 +81,9 @@ debug() {
   fi
 }
 
+debug \\"husky v3.0.8 (created at <locale date string>)\\"
 debug \\"$hookName hook started\\"
+debug \\"Current working directory is '\`pwd\`'\\"
 
 if [ \\"\${HUSKY_SKIP_HOOKS}\\" = \\"true\\" ] || [ \\"\${HUSKY_SKIP_HOOKS}\\" = \\"1\\" ]; then
   debug \\"HUSKY_SKIP_HOOKS is set to \${HUSKY_SKIP_HOOKS}, skipping hook\\"
@@ -87,16 +91,16 @@ if [ \\"\${HUSKY_SKIP_HOOKS}\\" = \\"true\\" ] || [ \\"\${HUSKY_SKIP_HOOKS}\\" =
 fi
 
 if [ \\"\${HUSKY_USE_YARN}\\" = \\"true\\" ] || [ \\"\${HUSKY_USE_YARN}\\" = \\"1\\" ]; then
-  debug \\"calling husky through Yarn\\"
+  debug \\"Calling husky through Yarn\\"
   yarn husky-run $hookName \\"$gitParams\\"
 else
-  
+
   if [ -f \\"$scriptPath\\" ]; then
     # if [ -t 1 ]; then
     #   exec < /dev/tty
     # fi
     if [ -f ~/.huskyrc ]; then
-      debug \\"source ~/.huskyrc\\"
+      debug \\"Sourcing '~/.huskyrc'\\"
       . ~/.huskyrc
     fi
     node \\"$scriptPath\\" $hookName \\"$gitParams\\"

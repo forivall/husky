@@ -1,8 +1,8 @@
 import index from './'
-import debug from '../debug'
+import { checkGitDirEnv } from '../checkGitDirEnv'
 
-// Debug
-debug(`cwd: ${process.cwd()}`)
+// Check GIT_DIR environment variable
+checkGitDirEnv()
 
 // Run hook
 index(process.argv)
