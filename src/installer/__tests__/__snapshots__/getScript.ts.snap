@@ -23,7 +23,7 @@ debug() {
   fi
 }
 
-debug \\"husky v3.0.8 (created at <locale date string>)\\"
+debug \\"husky v3.1.1-skipInstall (created at <locale date string>)\\"
 debug \\"$hookName hook started\\"
 debug \\"Current working directory is '\`pwd\`'\\"
 
@@ -81,7 +81,7 @@ debug() {
   fi
 }
 
-debug \\"husky v3.0.8 (created at <locale date string>)\\"
+debug \\"husky v3.1.1-skipInstall (created at <locale date string>)\\"
 debug \\"$hookName hook started\\"
 debug \\"Current working directory is '\`pwd\`'\\"
 
